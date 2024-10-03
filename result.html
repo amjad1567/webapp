@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const name = params.get('qname');
+            const email = params.get('qemail');
+            
+            if (name && email) {
+                document.getElementById('result').innerText = `The user with name ${name} and email ${email} has been registered successfully.`;
+            } else {
+                document.getElementById('result').innerText = 'Registration failed. Please make sure all fields are filled out correctly.';
+            }
+        }
+
+        window.onload = getQueryParams;
+    </script>
+</head>
+<body>
+    <h1>Registration Status</h1>
+    <p id="result">Waiting for form submission...</p>
+</body>
+</html>
